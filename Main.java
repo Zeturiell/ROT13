@@ -7,6 +7,9 @@ public class Main {
     public static void main(String[] args) {
         String str = Main.cypherWord("HelloWorld");
         System.out.println(str);
+        String st2 = Main.cypherWord(str);
+        System.out.println(st2);
+
     }
     public static String cypherWord(String phrase){
         String alph = "abcdefghijklmnopqrstuvwxyz";
