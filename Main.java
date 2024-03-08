@@ -5,16 +5,16 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        String str = Main.cypherWord("HelloWorld");
+        String str = Main.cypherWord("Hello World");
         System.out.println(str);
-        String st2 = Main.cypherWord(str);
+       String st2 = Main.cypherWord(str);
         System.out.println(st2);
 
     }
     public static String cypherWord(String phrase){
         String alph = "abcdefghijklmnopqrstuvwxyz";
+        String specials =" @#$%^&*()_+{}[]|\\:;\"',.<>?/`~-=";
         Map<Integer,String>mp = new HashMap<>();
-        List<Integer>num = new ArrayList<>();
         StringBuilder str2 = new StringBuilder();
 
         for (int i = 0; i < alph.length(); i++) {
@@ -28,13 +28,11 @@ public class Main {
                      if(count>26){
                         count = count-26;
                      }
-                     num.add(count);
-                }
+                     str2.append(mp.get(count));
+                }else if(specials.contains(key.getValue())){
+                            str2.append(key.getValue());
+                        }
             }
-        }
-        for (int i=0;i<num.size();i++) {
-            //System.out.print(mp.get(num.get(i)));
-            str2.append(mp.get(num.get(i)));
         }
         return str2.toString();
     }
