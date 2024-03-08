@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        String str = Main.cypherWord("Hello World $%¨T&Y");
+        String str = Main.cypherWord("Guvf vf zl svefg EBG13 rkprepvfr!");
         System.out.println(str);
        String st2 = Main.cypherWord(str);
         System.out.println(st2);
@@ -12,6 +12,7 @@ public class Main {
     public static String cypherWord(String phrase){
         String alph = "abcdefghijklmnopqrstuvwxyz";
         String specials =" @#$%^&*()_+{}[]|\\:;\"',.<>?/`~-=¨";
+        String numbers ="1234567890";
         Map<Integer,String>mp = new HashMap<>();
         StringBuilder str2 = new StringBuilder();
 
@@ -32,6 +33,11 @@ public class Main {
             }
             for (int j = 0; j < specials.length(); j++) {
                 if(String.valueOf(phrase.charAt(i)).equals(String.valueOf(specials.charAt(j)))){
+                    str2.append(phrase.charAt(i));
+                }
+            }
+            for (int k = 0; k < numbers.length(); k++) {
+                if(String.valueOf(phrase.charAt(i)).equals(String.valueOf(numbers.charAt(k)))){
                     str2.append(phrase.charAt(i));
                 }
             }
